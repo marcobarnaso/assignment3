@@ -20,14 +20,14 @@ const getDetails = ({ vendor, model, price }) => {
     console.log(chalk.blue.inverse(`${vendor} ${model}, for price: ${price}`))
 }
 
-const performanceTest = ({ performanceTests }, date, callback) => {
+const performanceTest = (computer, date, callback) => {
     console.log(chalk.yellow.inverse('Performing test...'))
 
     setTimeout(() => {
-        const testResult = Math.random() < 0.7;
-        performanceTests.push(`Date: ${date}, Passed: ${testResult}`)
+        const testResult = Math.random() < 0.5;
+        computer.performanceTests.push(`Date: ${date}, Passed: ${testResult}`)
         const testMessage = 'Test finished'
-        callback(undefined, { performanceTests, testMessage })
+        callback(undefined, {pt: computer.performanceTests, tm: testMessage })
 
     }, 1000)
 }
@@ -45,17 +45,13 @@ const performanceTestPromise = ({ performanceTests }, date) => {
     })
 }
 
-async function wait(ms) {
-    
-}
-
 const performanceTestAsyncAwait = async ({ performanceTests }, date) => {
     console.log(chalk.yellow.inverse('Performing test...'))
     
     await new Promise(resolve => {
-        setTimeout(resolve, 1000)
+        setTimeout(resolve, 3000)
     })
-        const testResult = Math.random() < 0.7;
+        const testResult = Math.random() < 0.3;
         performanceTests.push(`Date: ${date}, Passed: ${testResult}`)
         const testMessage = 'Test finished'
         return ({ pt: performanceTests, tm: testMessage })
