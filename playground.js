@@ -1,9 +1,5 @@
 const chalk = require('chalk')
-const { sellComputer } = require('./assignment-3')
-const { getDetails } = require('./assignment-3')
-const { performanceTest } = require('./assignment-3')
-const { performanceTestPromise } = require('./assignment-3')
-const { performanceTestAsyncAwait } = require('./assignment-3')
+const { sellComputer, getDetails, performanceTest, performanceTestPromise, performanceTestAsyncAwait } = require('./assignment-3')
 
 const computer = {
     vendor: 'Asus',
